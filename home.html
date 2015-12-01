@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dungeon Master 2.0</title>
+	<link rel="stylesheet" href="css/home-style.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Chivo:400italic' rel='stylesheet' type='text/css'>
+	<script src="//cdn.mxpnl.com/site_media/js/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+</head>
+<body>
+    <div class="fade"></div>
+	<div class="a header">
+		<h1><a id="home" href="/">Dungeon Master</a></h1>
+	</div>
+	<ul class="nav">
+		<a class="a nav-item search">
+			<li>
+				<p class="a nav-link">Search</p>
+				<div class="description">Search existing dungeons by industry</div>
+			</li>
+		</a>
+		<a class="a nav-item" href="builder/" id="new">
+			<li>
+				<p class="a nav-link" href="/builder" id="new-link">New</p>
+				<div class="description">Create a new dungeon</div>
+			</li>
+		</a>
+		<a class="a nav-item" id="eternal">
+			<li>
+				<p class="a nav-link">Eternal</p>
+				<div class="description">Dungeons and demo projects for popular customer verticals</div>
+			</li>
+		</a>
+		<a class="a nav-item" id="help">
+			<li>
+				<p class="a nav-link">Help</p>
+				<div class="description">Getting started with Dungeon Master</div>
+			</li>
+		</a>
+	</ul>
+	<div class="content">
+		<img src="images/dragon-loop.gif" alt="Dungeon Master 2.0">
+	
+ 	</div>
+    <div id="search">
+        <h2>Dungeon Search</h2>
+        <div class="close"></div>
+        <div class="filters">
+            <div class="industry-search">
+                <div class="label">Filter by one or more industries:</div>
+                <div class="industry-select dropdown-parent">
+                    <div class="select-button">
+                        <p>ALL INDUSTRIES</p>
+                        <div class="down-arrow"></div>
+                    </div>
+                    <div class="select-menu fixed-dropdown">
+                        <div class="options-list">
+                            <div class="select-option selected" id="all-industries">ALL INDUSTRIES</div>
+                            <div class="select-option">Photo/Video</div>
+                            <div class="select-option">Gaming</div>
+                            <div class="select-option">E-Commerce</div>
+                            <div class="select-option">Social/Messaging</div>
+                            <div class="select-option">SaaS</div>
+                            <div class="select-option">Media</div>
+                            <div class="select-option">Travel</div>
+                            <div class="select-option">Health</div>
+                            <div class="select-option">Education</div>
+                            <div class="select-option">Finance</div>
+                            <div class="select-option">Marketplace</div>
+                            <div class="select-option">Other</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fixed-menu">
+            <div class="search-box-container">
+                <input class="search-box" autofocus>
+            </div>
+            <div class="options-list">
+                <div class="your-dungeons">
+                    <div class="results-section">YOUR DUNGEONS</div>
+                </div>
+                <div class="other-dungeons">
+                    <div class="results-section">OTHER DUNGEONS</div>
+                </div>
+                <p class="no-results">Your search returned no results</p>
+                <img src="images/ajax-loader.gif" alt="Loading" class="loading">
+            </div>
+        </div>
+    </div>
+	<div class="help">
+		<div class="close"></div>
+		<div class="help-section">
+			<h2 class="section-header">About Dungeon Master</h2>
+			<p>Dungeon Master is a tool that allows you to populate custom data into a real-life Mixpanel project to construct custom demos for customers.</p>
+		</div>
+		<div class="help-section">
+			<h2 class="section-header">Why use it?</h2>
+			<p>Custom demos allow us to wow customers and give demos that address real questions for their businesses. Mixpanel's potential resonates on a much deeper level when the examples we show in our reports are catered toward the things they think about every day.</p>
+		</div>
+		<div class="help-section">
+			<h2 class="section-header">How do I build one?</h2>
+			<p>Three steps:</p>
+			<ol type="1" style="margin-left: 22px">
+				<li>
+					<p>Enter the names of the <span class="bold">events</span> you want to send to your demo project, along with any properties that should be sent at the time of each event.</p>
+					<ol type="a">
+						<li>
+							<p>Event, super, AND people properties correlated with an action should be added to the events. To designate a particular property as a super/people property (both will be created), switch the "Super/People?" toggle to YES.</p>
+						</li>
+						<li>
+							<p>Properties can be typecasted as string, numeric, boolean, date, or list.</p>
+							<ol type="i">
+								<li>
+									<p>String and list properties may have multiple values associated with them. The toggle next to each property value indicates whether or not a user with that particular property value will be a "good" user (i.e., have higher conversion and retention rates, and fire more events).</p>
+								</li>
+								<li>
+									<p>Date properties give you two options: "Date of first event" and "Date of last event." Choose date of first event to set the date property equal to the first time a user fires that event (e.g., "Created Date" would be the first time a user completes a "Sign Up" event). Choose date of last event to set the property equal to the last time a user fires that event (e.g., "Last Purchase Date" should equal the last time a user completes the "Purchase" event).</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<p>Build <span class="bold">paths</span> users may take through events.</p>
+					<ol type="a">
+						<li>
+							<p>The required path should consist of all events that users MUST complete - in order - before firing any other events. If no such events exist (e.g., there is no sign up or authentication process), the required path may be left blank.</p>
+						</li>
+						<li>
+							<p>Usage paths should encompass all flows, paths, funnels, etc. of events in a user journey. They may be casual flows (like browsing photos then liking a photo on Instagram) or specific funnels that address business goals (like viewing a product, adding it to a cart, and purchasing on Amazon).</p>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<p>Customize your dungeon's settings. You can choose which platforms are relevant to the customer (are they mobile only?), which notification types you'd like to be pre-generated for you, etc. You will also be asked to choose an industry for your dungeon (very important for later searches!) and name it.</p>
+				</li>
+			</ol>
+		</div>
+		<div class="help-section">
+			<h2 class="section-header">What's included?</h2>
+			<p>Dungeon Master handles several things automatically:</p>
+			<ul>
+                <li>Default super and people properties for each of the platforms you select</li>
+                <li>Extra default super and people properties: Name, Email, Platform, Experiment Group, Last Event, Campaign Name and Campaign Source</li>
+                <li>Incremental super and people properties for every event you define (called "[event] Count" - e.g., "Log In Count")</li>
+                <li>Notification and A/B testing analytics data</li>
+			</ul>
+		</div>
+		<div class="help-section">
+			<a class="get-started">Get started!</a>
+		</div>
+	</div>
+	<script>
+	    (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    	for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+    	if (window.location.hostname == 'mixpanel.com') {
+        	mixpanel.init('adc07d1bff38929e7b4d1feb4cac87d3', {}, 'dm');
+    	}
+	    else {
+	        mixpanel.init('95d88a0a0f533a82dc95ad5a3943729b', {}, 'dm');
+	    }
+
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			mixpanel.dm.track('View Page', {
+				'Page Name': 'Home',
+			});
+			$('#home').click(function() {
+			    mixpanel.dm.track('Click Nav', {
+	    	        'Nav Item': 'Home',
+		        });
+			});
+			$('#help').click(function() {
+			    mixpanel.dm.track('Click Nav', {
+	    	        'Nav Item': 'Help',
+		        });
+				// show help modal
+				$('.help').fadeIn(500);
+			});
+		    $('#new').click(function() {
+		        mixpanel.dm.track('Click Nav', {
+		            'Nav Item': 'New',
+		        });
+		    });
+		    $('#eternal').click(function() {
+		        mixpanel.dm.track('Click Nav', {
+		            'Nav Item': 'Eternal',
+		        });
+		        // show eternal
+		    });
+			// close help and search modals
+		    $('.fade, .close, .get-started').click(function() {
+		        $('#search').fadeOut(500);
+		        $('.help').fadeOut(500);
+		        $('.fade').fadeOut(500);        
+		    });		
+		});
+	</script>
+</body>
+</html>
