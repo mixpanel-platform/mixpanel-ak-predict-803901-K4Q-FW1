@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	height: 1200px;
 }
 ul {
 	list-style: none;
@@ -109,7 +110,7 @@ h1 {
 	display: inline-block;
 }
 .main-nav, .mini-nav {
-	margin: 40px 0 60px;
+	/*margin: 40px 0 60px; */
 	text-align: center;
 	background-color: #d9dfe9;
 	z-index: 100;
