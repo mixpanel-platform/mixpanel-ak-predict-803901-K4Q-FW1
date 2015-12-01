@@ -26,6 +26,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	height: 2500px;
+	
 
 }
 ul {
