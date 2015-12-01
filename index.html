@@ -2,372 +2,405 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dungeon Master 2.0</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Spec-erator by AK</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="fade"></div>
     <header>
-        <div class="hidden-torch"></div>
-        <div class="page-title">
-            <img src="https://mixpanel.com/site_media/images/admin/torch.gif" alt="torch" class="torch">
-            <h1></h1>
-            <img src="https://mixpanel.com/site_media/images/admin/torch.gif" alt="torch" class="torch">
-        </div>
         <div class="main-nav">
-            <a class="home-nav" href="/"><img src="images/dmlogo-dark-gray.png" alt="dm-logo"></a>
-            <ul class="ul">
-                <li><a href="#search" class="search-nav">Search</a></li>
-                <li><a href="#new" class="new-nav">New</a></li>
-                <li><a href="#eternal" class="eternal-nav">Eternal</a></li>
-                <li><a href="#help" class="help-nav">Help</a></li>
-            </ul>
-        </div>
-        <div class="mini-nav">
-            <a class="home-nav" href="/"><img src="images/dmlogo-dark-gray.png" alt="dm-logo"></a>
-            <ul class="ul">
-                <li><a href="#search" class="search-nav">Search</a></li>
-                <li><a href="#new" class="new-nav">New</a></li>
-                <li><a href="#eternal" class="eternal-nav">Eternal</a></li>
-                <li><a href="#help" class="help-nav">Help</a></li>
-            </ul>
+            <a class="home-nav" href="#"><img alt="dm-logo" src=
+            "images/spec-logo.png"></a><br>
+            <p>This tool was designed to help you structure your
+            implementation</p><br>
+            <p>This wizard will assist you in making an implementation
+            spec</p><br>
+            <p>This spec is KEY to implement mixpanel efficiently with best
+            practices.</p>
         </div>
     </header>
-    <div class="help section">
-        <div class="close"></div>
-        <div class="help-section">
-            <h2 class="section-header">About Dungeon Master</h2>
-            <p>Dungeon Master is a tool that allows you to populate custom data into a real-life Mixpanel project to construct custom demos for customers.</p>
-        </div>
-        <div class="help-section">
-            <h2 class="section-header">Why use it?</h2>
-            <p>Custom demos allow us to wow customers and give demos that address real questions for their businesses. Mixpanel's potential resonates on a much deeper level when the examples we show in our reports are catered toward the things they think about every day.</p>
-        </div>
-        <div class="help-section">
-            <h2 class="section-header">How do I build one?</h2>
-            <p>Three steps:</p>
-            <ol type="1" style="margin-left: 22px">
-                <li>
-                    <p>Enter the names of the <span class="bold">events</span> you want to send to your demo project, along with any properties that should be sent at the time of each event.</p>
-                    <ol type="a">
-                        <li>
-                            <p>Event, super, AND people properties correlated with an action should be added to the events. To designate a particular property as a super/people property (both will be created), switch the "Super/People?" toggle to YES.</p>
-                        </li>
-                        <li>
-                            <p>Properties can be typecasted as string, numeric, boolean, date, or list.</p>
-                            <ol type="i">
-                                <li>
-                                    <p>String and list properties may have multiple values associated with them. The toggle next to each property value indicates whether or not a user with that particular property value will be a "good" user (i.e., have higher conversion and retention rates, and fire more events).</p>
-                                </li>
-                                <li>
-                                    <p>Date properties give you two options: "Date of first event" and "Date of last event." Choose date of first event to set the date property equal to the first time a user fires that event (e.g., "Created Date" would be the first time a user completes a "Sign Up" event). Choose date of last event to set the property equal to the last time a user fires that event (e.g., "Last Purchase Date" should equal the last time a user completes the "Purchase" event).</p>
-                                </li>
-                            </ol>
-                        </li>
-                    </ol>
-                </li>
-                <li>
-                    <p>Build <span class="bold">paths</span> users may take through events.</p>
-                    <ol type="a">
-                        <li>
-                            <p>The required path should consist of all events that users MUST complete - in order - before firing any other events. If no such events exist (e.g., there is no sign up or authentication process), the required path may be left blank.</p>
-                        </li>
-                        <li>
-                            <p>Usage paths should encompass all flows, paths, funnels, etc. of events in a user journey. They may be casual flows (like browsing photos then liking a photo on Instagram) or specific funnels that address business goals (like viewing a product, adding it to a cart, and purchasing on Amazon).</p>
-                        </li>
-                    </ol>
-                </li>
-                <li>
-                    <p>Customize your dungeon's settings. You can choose which platforms are relevant to the customer (are they mobile only?), which notification types you'd like to be pre-generated for you, etc. You will also be asked to choose an industry for your dungeon (very important for later searches!) and name it.</p>
-                </li>
-            </ol>
-        </div>
-        <div class="help-section">
-            <h2 class="section-header">What's included?</h2>
-            <p>Dungeon Master handles several things automatically:</p>
-            <ul>
-                <li>Default super and people properties for each of the platforms you select</li>
-                <li>Extra default super and people properties: Name, Email, Platform, Experiment Group, Last Event, Campaign Name and Campaign Source</li>
-                <li>Incremental super and people properties for every event you define (called "[event] Count" - e.g., "Log In Count")</li>
-                <li>Notification and A/B testing analytics data</li>
-            </ul>
-        </div>
-        <div class="help-section">
-            <a class="get-started bold">Get started!</a>
-        </div>
-    </div>
-    <div id="search" class="section">
-        <h2>Dungeon Search</h2>
-        <div class="close"></div>
-        <div class="filters">
-            <div class="industry-search">
-                <div class="label">Filter by one or more industries:</div>
-                <div class="industry-select dropdown-parent">
-                    <div class="select-button">
-                        <p>ALL INDUSTRIES</p>
-                        <div class="down-arrow"></div>
-                    </div>
-                    <div class="select-menu fixed-dropdown">
-                        <div class="options-list">
-                            <div class="select-option selected" id="all-industries">ALL INDUSTRIES</div>
-                            <div class="select-option">Photo/Video</div>
-                            <div class="select-option">Gaming</div>
-                            <div class="select-option">E-Commerce</div>
-                            <div class="select-option">Social/Messaging</div>
-                            <div class="select-option">SaaS</div>
-                            <div class="select-option">Media</div>
-                            <div class="select-option">Travel</div>
-                            <div class="select-option">Health</div>
-                            <div class="select-option">Education</div>
-                            <div class="select-option">Finance</div>
-                            <div class="select-option">Marketplace</div>
-                            <div class="select-option">Other</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="fixed-menu">
-            <div class="search-box-container">
-                <input class="search-box" autofocus>
-            </div>
-            <div class="options-list">
-                <div class="your-dungeons">
-                    <div class="results-section">YOUR DUNGEONS</div>
-                </div>
-                <div class="other-dungeons">
-                    <div class="results-section">OTHER DUNGEONS</div>
-                </div>
-                <p class="no-results">Your search returned no results</p>
-                <img src="images/ajax-loader.gif" alt="Loading" class="loading">
-            </div>
-        </div>
-    </div>
-    <div id="events" class="section">
+    <div class="section" id="events" style=
+    "width: 700px; opacity: 0.4; height: 60px;">
         <div class="collapsed">
-            <h2>Step 1</h2>
-            <p class="step">Add events and properties</p>
+            <h2>Implementation</h2>
+            <p class="step">The scope of Events and Properties to be tracked by
+            Mixpanel</p>
         </div>
-        <div class="expanded">
+        <div class="expanded" style="width: 1050px; display: none;">
             <div class="headers">
-                <div class="events title">Events</div>
-                <div class="props title">Properties</div>
-                <div class="super title">Super/People
-                    <div class="tooltip header">?</div>
+                <div class="events title">
+                    Events
+                    <div class="tooltip header">
+                        ?
+                    </div>
                     <div class="tooltip-content">
-                        <div class="arrow"></div>
-                        Is this a super/people property?
+                        <div class="arrow"></div>Events are...
                     </div>
                 </div>
-                <div class="vals title">Property Values</div>
-                <div class="good title">Good Property
-                    <div class="tooltip header">?</div>
+                <div class="props title">
+                    Properties
+                    <div class="tooltip header">
+                        ?
+                    </div>
                     <div class="tooltip-content">
-                        <div class="arrow"></div>
-                        Will this property value lead to higher conversion, retention, etc?
+                        <div class="arrow"></div>Properties are...
+                    </div>
+                </div>
+                <div class="super title">
+                    Super Property
+                    <div class="tooltip header">
+                        ?
+                    </div>
+                    <div class="tooltip-content">
+                        <div class="arrow"></div>A super property is
+                    </div>
+                </div>
+                <div class="vals title">
+                    Example Values
+                    <div class="tooltip header">
+                        ?
+                    </div>
+                    <div class="tooltip-content">
+                        <div class="arrow"></div>It's import to give example
+                        values of each property so you can be sure we're
+                        targeting the right attributes.
+                    </div>
+                </div>
+                <div class="good title">
+                    People Property
+                    <div class="tooltip header">
+                        ?
+                    </div>
+                    <div class="tooltip-content">
+                        <div class="arrow"></div>A people property is...
                     </div>
                 </div>
             </div>
             <div class="event-names"></div>
-            <div class="button next-event" id="add-event">ADD EVENT</div>
-            <div class="button next done" id="next-step-events">NEXT STEP</div>
+
+<!--             <div class="event" id="0">
+                <div class="event-name">
+                    <div class="collapse-expand">
+                        -
+                    </div><input class="name text" type="text">
+                    <div class="delete-icon"></div>
+                </div>
+                <div class="properties">
+                    <div class="new-prop">
+                        <div class="plus" style=
+                        "display: inline-block; margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div> -->
+         
+            <div class="button next-event" id="add-event">
+                ADD EVENT
+            </div>
+            <div class="button next done" id="next-step-events">
+                NEXT STEP
+            </div>
         </div>
     </div>
-    <div id="paths" class="section">
+    <div class="section" id="paths" style=
+    "width: 700px; height: 60px; opacity: 0.4;">
         <div class="collapsed">
-            <h2>Step 2</h2>
-            <p class="step">Define common "paths" for events (used for funnel and retention data)</p>
+            <h2>Funnels</h2>
+            <p class="step">Define how do your users should use your app</p>
         </div>
         <div class="expanded">
-            <div class="headers">
-                <div class="paths title">Paths</div>
+            <div class="headers" id="pathHead">
+                <div class="paths title">
+                    Now take the events which you've defined and fit them into
+                    paths.<br>
+                    This funnels reflect the different journey's users can take
+                    through your app
+                </div>
             </div>
             <div class="paths">
                 <div class="required">
-                    <p class="instructions"><span class="big">Required</span> - these steps must be taken before any other events are fired (e.g., registration, onboarding, etc.)</p>
-                <div class="button next-path">ADD PATH</div>
+                    <p class="instructions"><span class="big">Required</span> -
+                    these steps must be taken before any other events are fired
+                    (e.g., registration, onboarding, etc.)</p>
+             <!--        <div class="path" id="path0">
+                        <div class="path-name-holder">
+                            <input class="path-name" placeholder="Path Name"
+                            type="text">
+                            <div class="delete-icon"></div>
+                        </div>
+                        <div class="path-event-names">
+                            <div class="path-event dropdown-parent">
+                                <div class="select-button">
+                                    <div class="remove-step"></div>
+                                    <p>-- Select first event --</p>
+                                    <div class="down-arrow"></div>
+                                </div>
+                                <div class="select-meƒ">
+                                    <div class="search-box-container">
+                                        <input class="search-box">
+                                    </div>
+                                    <div class="options-list"></div>
+                                </div>
+                            </div>
+                            <div class="right-arrow"></div>
+                            <div class="plus" style=
+                            "display: inline-block; vertical-align: 1px;">
+                            </div>
+                        </div>
+                    </div> -->
+       <!--              <hr>
+                    <div class="path" id="path0">
+                        <div class="path-name-holder">
+                            <input class="path-name" placeholder="Path Name"
+                            type="text">
+                            <div class="delete-icon"></div>
+                        </div>
+                        <div class="path-event-names">
+                            <div class="path-event dropdown-parent">
+                                <div class="select-button">
+                                    <div class="remove-step"></div>
+                                    <p>-- Select first event --</p>
+                                    <div class="down-arrow"></div>
+                                </div>
+                                <div class="select-menu">
+                                    <div class="search-box-container">
+                                        <input class="search-box">
+                                    </div>
+                                    <div class="options-list"></div>
+                                </div>
+                            </div>
+                            <div class="right-arrow"></div>
+                            <div class="plus" style=
+                            "display: inline-block; vertical-align: 1px;">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="button next-path" style="display: none;">
+                        ADD PATH
+                    </div>
                 </div>
                 <div class="usage">
-                    <p class="instructions"><span class="big">Regular Usage</span> - other ordered flows in the app (e.g., Add Credit Card > Buy Song > Play Song, Register for Course > Start Lesson > Complete Lesson, etc.)</p>
-                <div class="button next-path">ADD PATH</div>
+                    <p class="instructions"><span class="big">Regular
+                    Usage</span> - other ordered flows in the app (e.g., Add
+                    Credit Card &gt; Buy Song &gt; Play Song, Register for
+                    Course &gt; Start Lesson &gt; Complete Lesson, etc.)</p>
+<!--                     <div class="path" id="path1">
+                        <div class="path-name-holder">
+                            <input class="path-name" placeholder="Path Name"
+                            type="text">
+                            <div class="delete-icon"></div>
+                        </div>
+                        <div class="path-event-names">
+                            <div class="path-event dropdown-parent">
+                                <div class="select-button">
+                                    <div class="remove-step"></div>
+                                    <p>-- Select first event --</p>
+                                    <div class="down-arrow"></div>
+                                </div>
+                                <div class="select-menu">
+                                    <div class="search-box-container">
+                                        <input class="search-box">
+                                    </div>
+                                    <div class="options-list"></div>
+                                </div>
+                            </div>
+                            <div class="right-arrow"></div>
+                            <div class="plus" style=
+                            "display: inline-block; vertical-align: 1px;">
+                            </div>
+                        </div>
+                    </div>
+                    <hr> -->
+                    <!-- <div class="path" id="path1">
+                        <div class="path-name-holder">
+                            <input class="path-name" placeholder="Path Name"
+                            type="text">
+                            <div class="delete-icon"></div>
+                        </div>
+                        <div class="path-event-names">
+                            <div class="path-event dropdown-parent">
+                                <div class="select-button">
+                                    <div class="remove-step"></div>
+                                    <p>-- Select first event --</p>
+                                    <div class="down-arrow"></div>
+                                </div>
+                                <div class="select-menu">
+                                    <div class="search-box-container">
+                                        <input class="search-box">
+                                    </div>
+                                    <div class="options-list"></div>
+                                </div>
+                            </div>
+                            <div class="right-arrow"></div>
+                            <div class="plus" style=
+                            "display: inline-block; vertical-align: 1px;">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="button next-path">
+                        ADD PATH
+                    </div>
                 </div>
             </div>
-            <div class="event-names unused">
-                <p class="instructions"><span class="big">Unused Events</span> - these events will be fired randomly among the other ordered events <span class="bold">if the user made it through the required path</span></p>
+            <div class="event-names unused" style="display: none;">
+                <p class="instructions"><span class="big">Unused Events</span>
+                - these events will be fired randomly among the other ordered
+                events <span class="bold">if the user made it through the
+                required path</span></p>
             </div>
-            <div class="button next done">NEXT STEP</div>
+            <div class="button next done">
+                NEXT STEP
+            </div>
         </div>
     </div>
-    <div id="config" class="section">
+    <div class="section" id="config" style="width: 1050px; opacity: 1;">
         <div class="collapsed">
-            <h2>Step 3</h2>
-            <p class="step">Configure Dungeon settings, name and save your Dungeon</p>
+            <h2>Configuration</h2>
+            <p class="step">Define the different platforms and additional
+            options needed</p>
         </div>
-        <div class="expanded">
+        <div class="expanded" style="width: 1050px; display: block;">
             <div class="headers">
-                <h3 class="paths title">Configuration Settings</h3>
+                <h3 class="paths title">Additional Information for
+                Developers</h3>
             </div>
             <div class="settings">
                 <div class="option" id="platforms" style="margin-top: 10px">
-                    <div class="setting description">Platforms
-                        <div class="tooltip description">?</div>
+                    <div class="setting description">
+                        Platforms
+                        <div class="tooltip description">
+                            ?
+                        </div>
                         <div class="tooltip-content">
-                            <div class="arrow"></div>
-                            Used to populate the applicable default properties.
+                            <div class="arrow"></div>What platforms will people
+                            use to access your application
                         </div>
                     </div>
                     <div class="input">
                         <div class="check">
-                            <div id="platform-web" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">Web</div>
+                            <div class="checkbox-option selected" id=
+                            "platform-web"></div>
+                            <div class="checkbox-label">
+                                Web
+                            </div>
                         </div>
                         <div class="check">
-                            <div id="platform-ios" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">iOS</div>
+                            <div class="checkbox-option selected" id=
+                            "platform-ios"></div>
+                            <div class="checkbox-label">
+                                iOS
+                            </div>
                         </div>
                         <div class="check">
-                            <div id="platform-android" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">Android</div>
-                        </div>
-                    </div>
-                </div>
-<!--                 <div class="option" id="weekend-dip">
-                    <div class="setting description">Decrease activity on weekends<div title="Is the product going to be used mostly on weekdays?" class="tooltip description">?</div></div>
-                    <div class="input"><div class="toggle no"></div></div>
-                </div>
- --><!--                 <div class="option" id="auto-props">
-                    <div class="setting description">Automatic super/people properties for each event<div title="E.g., if you input 'Log In' and Purchase' events, Incremental means you will have super and people properties called 'Total Log Ins' and 'Total Purchases' with the correct event counts. Last Event Date means you will have 'Last Log In Date' and 'Last Purchase Date' super and people properties." class="tooltip description">?</div></div>
-                    <div class="input">
-                        <div class="check">
-                            <div id="auto-increment" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">Incremental</div>
-                        </div>
-                        <div class="check">
-                            <div id="auto-first-date" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">First Event Date</div>
-                        </div>
-                        <div class="check">
-                            <div id="auto-last-date" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">Last Event Date</div>
-                        </div>
-                    </div>
-                </div>
- -->                
-                <div class="option" id="notification-type" style="margin-bottom: 38px">
-                    <div class="setting description">Pre-generated Notification Type
-                        <div class="tooltip description">?</div>
-                        <div class="tooltip-content">
-                            <div class="arrow"></div>
-                            Select which types of notifications will have pre-loaded data so you can demo Notification Analytics. You will be able to create any notification type on the fly as well.
-                        </div>
-                    </div>
-                    <div class="input">
-<!--                         <div class="check">
-                            <div class="radio"><div class="radio-selected" style="opacity: 1"></div></div>
-                            <div class="radio-label">Email</div>
-                        </div>
-                        <div class="check">
-                            <div class="radio"></div>
-                            <div class="radio-label">Push</div>
-                        </div>
-                        <div class="check">
-                            <div class="radio"></div>
-                            <div class="radio-label">Mobile In-App</div>
-                        </div>
-                        <div class="check">
-                            <div class="radio"></div>
-                            <div class="radio-label">Web In-App</div>
-                        </div>
-                        <div class="check">
-                            <div class="radio"></div>
-                            <div class="radio-label">SMS</div>
-                        </div>
- -->                    
-                        <div class="check">
-                            <div id="email" class="checkbox-option disabled"></div>
-                            <div class="checkbox-label">Email</div>
-                        </div>
-                        <div class="check">
-                            <div id="push" class="checkbox-option selected"></div>
-                            <div class="checkbox-label">Push</div>
-                        </div>
-                        <div class="check">
-                            <div id="mobile-inapp" class="checkbox-option disabled"></div>
-                            <div class="checkbox-label">Mobile In-App</div>
-                        </div>
-                        <div class="check">
-                            <div id="web-inapp" class="checkbox-option disabled"></div>
-                            <div class="checkbox-label">Web In-App</div>
-                        </div>
-                        <div class="check">
-                            <div id="sms" class="checkbox-option disabled"></div>
-                            <div class="checkbox-label">SMS</div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <h4 class="required-settings">Required</h4>
-                <div class="option" id="industry" style="margin-bottom: 25px">
-                    <div class="setting description">Customer Industry
-                        <div class="tooltip description">?</div>
-                        <div class="tooltip-content">
-                            <div class="arrow"></div>
-                            This helps us organize all dungeons for easier search.
-                        </div>
-                    </div>
-                    <div class="input industry-select dropdown-parent">
-                        <div class="select-button">
-                            <p>-- Select Industry --</p>
-                            <div class="down-arrow"></div>
-                        </div>
-                        <div class="select-menu fixed-dropdown">
-                            <div class="options-list">
-                                <div class="select-option">Photo/Video</div>
-                                <div class="select-option">Gaming</div>
-                                <div class="select-option">E-Commerce</div>
-                                <div class="select-option">Social/Messaging</div>
-                                <div class="select-option">SaaS</div>
-                                <div class="select-option">Media</div>
-                                <div class="select-option">Travel</div>
-                                <div class="select-option">Health</div>
-                                <div class="select-option">Education</div>
-                                <div class="select-option">Finance</div>
-                                <div class="select-option">Marketplace</div>
-                                <div class="select-option">Other</div>
+                            <div class="checkbox-option selected" id=
+                            "platform-android"></div>
+                            <div class="checkbox-label">
+                                Android
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="option" id="dungeon-name" style="margin-bottom: 0">
-                    <div class="setting description">Dungeon Name
-                        <div class="tooltip description">?</div>
-                        <div class="tooltip-content">
-                            <div class="arrow"></div>
-                            Save with the same name to update an existing dungeon, or save as a new name to create a new dungeon.
+                <div class="option" id="notification-type" style=
+                "margin-bottom: 38px">
+                    <div class="setting description">
+                        Mixpanel Libraries
+                        <div class="tooltip description">
+                            ?
                         </div>
+                        <div class="tooltip-content">
+                            <div class="arrow"></div>If known, select all that
+                            apply
+                        </div>
+                    </div><br>
+                    <br>
+                    <div class="input">
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="js">
+                            </div>
+                            <div class="checkbox-label">
+                                JavaScript
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option selected" id="ios">
+                            </div>
+                            <div class="checkbox-label">
+                                iOS
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="android">
+                            </div>
+                            <div class="checkbox-label">
+                                Android
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="python">
+                            </div>
+                            <div class="checkbox-label">
+                                Python
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="java">
+                            </div>
+                            <div class="checkbox-label">
+                                Java
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="php">
+                            </div>
+                            <div class="checkbox-label">
+                                PHP
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="ruby">
+                            </div>
+                            <div class="checkbox-label">
+                                Ruby
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="node">
+                            </div>
+                            <div class="checkbox-label">
+                                Node.js
+                            </div>
+                        </div>
+                        <div class="check">
+                            <div class="checkbox-option disabled" id="HTTP">
+                            </div>
+                            <div class="checkbox-label">
+                                HTTP
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="option" id="dungeon-name" style="margin-bottom: 0">
+                    <div class="setting description">
+                        Application/Product name
                     </div>
                     <div class="input">
                         <input type="text">
                     </div>
                 </div>
-                <div class="button next done">SAVE</div>
-                <div class="button next done">SAVE & DOWNLOAD</div>
+                <div class="button next done">
+                    MAKE SPEC
+                </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-        if (window.location.hostname == 'mixpanel.com') {
-            mixpanel.init('adc07d1bff38929e7b4d1feb4cac87d3', {}, 'dm');
-        }
-        else {
-            mixpanel.init('95d88a0a0f533a82dc95ad5a3943729b', {}, 'dm');
-        }
-    </script>
-    <script src="//cdn.mxpnl.com/site_media/js/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script src=
+    "https://cdn.mxpnl.com/site_media/js/jquery/1.7.1/jquery.min.js" type=
+    "text/javascript">
+    </script> 
+    <script src="js/jquery.min.js" type="text/javascript">
+    </script> 
+    <script src="js/main.js" type="text/javascript">
+    </script> 
     <script type="text/javascript" src="js/search.js"></script>
 </body>
 </html>

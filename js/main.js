@@ -2,10 +2,10 @@ $(document).ready(function() {
 
 /// overall
 
-    mixpanel.dm.track('View Page', {
-        'Page Name': 'Builder',
-    });
-    mixpanel.dm.identify();
+    //mixpanel.dm.track('View Page', {
+    //     'Page Name': 'Builder',
+    // });
+    //mixpanel.dm.identify();
 
     var baseEndpoint = '/admin/internal/dungeon_master_2';
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
     }
     updateValues(savedValues);
     // start timing for save dungeon event
-    mixpanel.dm.time_event('Save Dungeon');
+    //mixpanel.dm.time_event('Save Dungeon');
 
     // make sure changed inputs are not lost by accidental reload or back navigation
     window.onbeforeunload = confirmExit;
@@ -81,9 +81,9 @@ $(document).ready(function() {
 
             // start timing 'complete section' events when sections open
             if ($(this).parent().attr('id') == 'events') {
-                mixpanel.dm.time_event('Complete Event Section');
+                //mixpanel.dm.time_event('Complete Event Section');
 	        } else if ($(this).parent().attr('id') == 'paths') {
-                mixpanel.dm.time_event('Complete Path Section');
+                //mixpanel.dm.time_event('Complete Path Section');
                 // update path events if opening the paths section
 	            updatePathEvents();
 	        }
@@ -104,12 +104,12 @@ $(document).ready(function() {
                 var type = $(icon).attr('class').slice(5);
                 if ($.inArray(type, propTypes) === -1) propTypes.push(type);
             });
-            mixpanel.dm.track('Complete Event Section', {
-                'Total Events': numEvents,
-                'Total Properties': numProps,
-                'Total Super/People Properties': numSuper,
-                'All Property Types': propTypes,
-            });
+            //mixpanel.dm.track('Complete Event Section', {
+            //     'Total Events': numEvents,
+            //     'Total Properties': numProps,
+            //     'Total Super/People Properties': numSuper,
+            //     'All Property Types': propTypes,
+            // });
         } else if (sectionDiv == 'paths') {
             // track event
             var allPaths = $('#paths').find('.path');
@@ -130,14 +130,14 @@ $(document).ready(function() {
             var numRequiredEvents = goodPaths['required events'];
             var numUsageEvents = goodPaths['usage events'];
             var numUnused = $('#paths').find('.collapse-event').length;
-            mixpanel.dm.track('Complete Path Section', {
-                'Total Paths': numRequired + numUsage,
-                'Usage Paths': numUsage,
-                'Required Paths': numRequired,
-                'Unused Events': numUnused,
-                'Usage Path Events': numUsageEvents,
-                'Required Path Events': numRequiredEvents,
-            });
+            // //mixpanel.dm.track('Complete Path Section', {
+            //     'Total Paths': numRequired + numUsage,
+            //     'Usage Paths': numUsage,
+            //     'Required Paths': numRequired,
+            //     'Unused Events': numUnused,
+            //     'Usage Path Events': numUsageEvents,
+            //     'Required Path Events': numRequiredEvents,
+            // });
         } else if (sectionDiv == 'config') {
             // save or save & download dungeon depending on button clicked
             if ($(this).text() == 'SAVE') {
@@ -223,27 +223,27 @@ $(document).ready(function() {
 
     // nav items
     $('.home-nav').click(function() {
-        mixpanel.dm.track('Click Nav', {
-            'Nav Item': 'Home',
-        });
+        //mixpanel.dm.track('Click Nav', {
+        //     'Nav Item': 'Home',
+        // });
     });
     $('.new-nav').click(function() {
-        mixpanel.dm.track('Click Nav', {
-            'Nav Item': 'New',
-        });
+        //mixpanel.dm.track('Click Nav', {
+        //     'Nav Item': 'New',
+        // });
         // go to builder page
         window.location.href = baseEndpoint + '/builder/';
     });
     $('.eternal-nav').click(function() {
-        mixpanel.dm.track('Click Nav', {
-            'Nav Item': 'Eternal',
-        });
+        //mixpanel.dm.track('Click Nav', {
+        //     'Nav Item': 'Eternal',
+        // });
         // show eternal
     });
     $('.help-nav').click(function() {
-        mixpanel.dm.track('Click Nav', {
-            'Nav Item': 'Help',
-        });
+        //mixpanel.dm.track('Click Nav', {
+        //     'Nav Item': 'Help',
+        // });
         // collapse other sections
         $('#search').fadeOut(500);
         collapseSteps();
@@ -1111,22 +1111,22 @@ $(document).ready(function() {
         return dungeonName;
     }
 
-    function getCurrentUser() {
-        if (window.location.hostname == 'dm2.dev') {
-            window.user = {firstName: "Laura", lastName: "Del Beccaro", email: "laura@mixpanel.com"}
-        }
-        currentUser = window.user.firstName + ' ' + window.user.lastName[0] + '.';
-        mixpanel.dm.people.set({
-            '$first_name': window.user.firstName,
-            '$last_name': window.user.lastName,
-            '$email': window.user.email,
-        });
-        mixpanel.dm.register({
-            'Name': window.user.firstName + ' ' + window.user.lastName,
-            'Email': window.user.email,
-        });
-    }
-    getCurrentUser();
+    // function getCurrentUser() {
+    //     if (window.location.hostname == 'dm2.dev') {
+    //         window.user = {firstName: "Laura", lastName: "Del Beccaro", email: "laura@mixpanel.com"}
+    //     }
+    //     currentUser = window.user.firstName + ' ' + window.user.lastName[0] + '.';
+    //     //mixpanel.dm.people.set({
+    //     //     '$first_name': window.user.firstName,
+    //     //     '$last_name': window.user.lastName,
+    //     //     '$email': window.user.email,
+    //     // });
+    //     //mixpanel.dm.register({
+    //     //     'Name': window.user.firstName + ' ' + window.user.lastName,
+    //     //     'Email': window.user.email,
+    //     // });
+    // }
+    // getCurrentUser();
 
     function saveDungeon(download) {
         var download = download ? true : false;
@@ -1155,29 +1155,29 @@ $(document).ready(function() {
 
     function trackDungeonSave(eventjson, pathjson, configjson, name, industry, download) {
         // track event
-        mixpanel.dm.track('Save Dungeon', {
-            'Download': download,
-            'Industry': industry,
-            'Dungeon Name': name,
-            'Author': currentUser,
-            'Platforms': configjson.platforms,
-            'Weekend Dip': configjson.weekend,
-            'Pre-generated Notifications': configjson.notifications,
-            'Total Events': Object.keys(eventjson).length,
-            'Total Paths': Object.keys(pathjson.required).length + Object.keys(pathjson.usage).length - 1, // subtract unused event list
-            'Required Paths': Object.keys(pathjson.required).length,
-            'Usage Paths': Object.keys(pathjson.usage).length - 1, // subtract unused event list
-            'Unused Events': pathjson.usage.unused.length,
-        });
+        //mixpanel.dm.track('Save Dungeon', {
+        //     'Download': download,
+        //     'Industry': industry,
+        //     'Dungeon Name': name,
+        //     'Author': currentUser,
+        //     'Platforms': configjson.platforms,
+        //     'Weekend Dip': configjson.weekend,
+        //     'Pre-generated Notifications': configjson.notifications,
+        //     'Total Events': Object.keys(eventjson).length,
+        //     'Total Paths': Object.keys(pathjson.required).length + Object.keys(pathjson.usage).length - 1, // subtract unused event list
+        //     'Required Paths': Object.keys(pathjson.required).length,
+        //     'Usage Paths': Object.keys(pathjson.usage).length - 1, // subtract unused event list
+        //     'Unused Events': pathjson.usage.unused.length,
+        // });
         var downloadIncrement = download ? 1 : 0;
-        mixpanel.dm.people.increment({
-            'Lifetime Dungeon Saves': 1,
-            'Lifetime Dungeon Downloads': downloadIncrement,
-            'Lifetime Dungeon Events': Object.keys(eventjson).length,
-            'Lifetime Dungeon Paths': Object.keys(pathjson.required).length + Object.keys(pathjson.usage).length - 1, // subtract unused event list
-        })
+        //mixpanel.dm.people.increment({
+        //     'Lifetime Dungeon Saves': 1,
+        //     'Lifetime Dungeon Downloads': downloadIncrement,
+        //     'Lifetime Dungeon Events': Object.keys(eventjson).length,
+        //     'Lifetime Dungeon Paths': Object.keys(pathjson.required).length + Object.keys(pathjson.usage).length - 1, // subtract unused event list
+        // })
         // start timing for next save
-        mixpanel.dm.time_event('Save Dungeon');
+        //mixpanel.dm.time_event('Save Dungeon');
     }
 
     function dungeon(eventjson, pathjson, configjson, name, industry, download) {
@@ -1280,13 +1280,13 @@ $(document).ready(function() {
         $('#dungeon-name input').val(dungeonData['name']);
 
         // track event
-        mixpanel.dm.track('Load Dungeon', {
-            'Dungeon Id': loadedDungeon,
-            'Dungeon Name': loadedDungeonName,
-            'Dungeon Author': loadedDungeonUser,
-            'Industry': industry,
-        });
-        mixpanel.dm.people.increment('Lifetime Dungeon Loads');
+        //mixpanel.dm.track('Load Dungeon', {
+        //     'Dungeon Id': loadedDungeon,
+        //     'Dungeon Name': loadedDungeonName,
+        //     'Dungeon Author': loadedDungeonUser,
+        //     'Industry': industry,
+        // });
+        //mixpanel.dm.people.increment('Lifetime Dungeon Loads');
     }
 
     function loadEvents(eventData) {
