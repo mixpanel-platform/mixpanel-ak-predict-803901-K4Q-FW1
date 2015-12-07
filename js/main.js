@@ -43,7 +43,7 @@ $(document).ready(function() {
         }
     }
 
-var expandedWidth = '1000px'
+var expandedWidth = '950px'
 
     // navigate between steps
     $('.collapsed').click(function(e) {
