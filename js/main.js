@@ -43,6 +43,8 @@ $(document).ready(function() {
         }
     }
 
+var expandedWidth = '1000px'
+
     // navigate between steps
     $('.collapsed').click(function(e) {
         e.stopPropagation();
@@ -50,13 +52,13 @@ $(document).ready(function() {
         if ($(this).parent().children('.expanded:visible').length > 0) {
         	collapseSteps();
         } else {
-	        $(this).siblings('.expanded').width('1050px');
+	        $(this).siblings('.expanded').width(expandedWidth);
 	        var newHeight = $(this).siblings('.expanded').height() + 60;
 
 	        // expand this section
 	        $(this).parent().animate({
 	            height: newHeight,
-	            'width': '1050px',
+	            'width': expandedWidth,
 	            opacity: 1
 	        }, 500, function() { 
 	            // reset height
@@ -73,7 +75,7 @@ $(document).ready(function() {
             });
 	        // collapse other sections
 	        $(this).parent().siblings('.section').not('#search, .help').animate({
-	            width: '700px',
+	            width: '500px',
 	            height: '60px',
 	            opacity: 0.4
 	        }, 500);
@@ -155,7 +157,7 @@ $(document).ready(function() {
 	        // collapse this section
 	        $(this).parents('.expanded').hide();
 	        $(this).parents('.section').animate({
-	            'width': '700px',
+	            'width': '500px',
 	            height: '60px',
 	            opacity: 0.4
 	        }, 500);
@@ -167,7 +169,7 @@ $(document).ready(function() {
     // collapse all steps
     function collapseSteps() {
         $('.section').not('#search, .help').animate({
-            width: '700px',
+            width: '500px',
             height: '60px',
             opacity: 1
         }, 500);
