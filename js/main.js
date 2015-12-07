@@ -50,45 +50,45 @@ var expandedWidth = '1000px'
         e.stopPropagation();
 
         if ($(this).parent().children('.expanded:visible').length > 0) {
-        	collapseSteps();
+            collapseSteps();
         } else {
-	        $(this).siblings('.expanded').width(expandedWidth);
-	        var newHeight = $(this).siblings('.expanded').height() + 60;
+            $(this).siblings('.expanded').width(expandedWidth);
+            var newHeight = $(this).siblings('.expanded').height() + 60;
 
-	        // expand this section
-	        $(this).parent().animate({
-	            height: newHeight,
-	            'width': expandedWidth,
-	            opacity: 1
-	        }, 500, function() { 
-	            // reset height
-	            $(this).height('');
-	        });
-	        // show expanded div in section
-	        $(this).siblings('.expanded').delay(300).animate({
-	            opacity: 'show'
-	        }, 500, function() {
+            // expand this section
+            $(this).parent().animate({
+                height: newHeight,
+                'width': expandedWidth,
+                opacity: 1
+            }, 500, function() { 
+                // reset height
+                $(this).height('');
+            });
+            // show expanded div in section
+            $(this).siblings('.expanded').delay(300).animate({
+                opacity: 'show'
+            }, 500, function() {
                 // focus on event input in event section
                 if ($(this).parent().attr('id') == 'events') {
                     $(this).find('.name').focus();
                 }
             });
-	        // collapse other sections
-	        $(this).parent().siblings('.section').not('#search, .help').animate({
-	            width: '500px',
-	            height: '60px',
-	            opacity: 0.4
-	        }, 500);
-	        $(this).parent().siblings('.section').not('#search, .help').find('.expanded').fadeOut(500);
+            // collapse other sections
+            $(this).parent().siblings('.section').not('#search, .help').animate({
+                width: '500px',
+                height: '60px',
+                opacity: 0.4
+            }, 500);
+            $(this).parent().siblings('.section').not('#search, .help').find('.expanded').fadeOut(500);
 
             // start timing 'complete section' events when sections open
             if ($(this).parent().attr('id') == 'events') {
                 //mixpanel.dm.time_event('Complete Event Section');
-	        } else if ($(this).parent().attr('id') == 'paths') {
+            } else if ($(this).parent().attr('id') == 'paths') {
                 //mixpanel.dm.time_event('Complete Path Section');
                 // update path events if opening the paths section
-	            updatePathEvents();
-	        }
+                updatePathEvents();
+            }
         }
     });
 
@@ -151,18 +151,18 @@ var expandedWidth = '1000px'
 
         // if config section has errors, don't collapse it
         if (saved == 'stop') {
-        	return;
+            return;
         }
         else {
-	        // collapse this section
-	        $(this).parents('.expanded').hide();
-	        $(this).parents('.section').animate({
-	            'width': '500px',
-	            height: '60px',
-	            opacity: 0.4
-	        }, 500);
-	        // expand next section (if there is one)
-	        $(this).parents('.section').next().children('.collapsed').trigger('click');        	
+            // collapse this section
+            $(this).parents('.expanded').hide();
+            $(this).parents('.section').animate({
+                'width': '500px',
+                height: '60px',
+                opacity: 0.4
+            }, 500);
+            // expand next section (if there is one)
+            $(this).parents('.section').next().children('.collapsed').trigger('click');         
         }
     });
 
@@ -1250,7 +1250,7 @@ var expandedWidth = '1000px'
         $.get(baseEndpoint + '/dungeons/' + id + '/', function(result) {
             var dungeonData = result;
             dungeonData = JSON.parse(dungeonData);
-	        loadDungeon(dungeonData);
+            loadDungeon(dungeonData);
         });
     }
 
